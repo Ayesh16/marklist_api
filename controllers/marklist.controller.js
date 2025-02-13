@@ -11,13 +11,32 @@ export const MarksIndex = async (req, res) => {
 
 export const MarksCreate = async (req, res) => {
     try {
-        const marks = await marklist.create(req.body);
-        
-        return res.status(201).json(marks);
+      const marks = await marklist.create(req.body);
+  
+      const total = marks.Java + marks.DS + marks.OS + marks.FDS + marks.Oops;
+  
+      let grade;
+      if (total >= 450) {
+        grade = 'A';
+      } else if (total >= 400) {
+        grade = 'B';
+      } else if (total >= 350) {
+        grade = 'C';
+      } else {
+        grade = 'D';
+      }
+  
+      marks.total = total;
+      marks.grade = grade;
+      await marks.save();
+  
+      return res.status(201).json(marks);
+  
     } catch (error) {
-        return res.status(400);
+    
+      return res.status(400).json({ message: 'Failed to create marks entry' });
     }
-};
+  };
 
 export const MarksDetails = async (req, res) => {
     try {
