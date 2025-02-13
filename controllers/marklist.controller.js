@@ -17,13 +17,13 @@ export const MarksCreate = async (req, res) => {
   
       let grade;
       if (total >= 450) {
-        grade = 'A';
+        grade = 'O';
       } else if (total >= 400) {
-        grade = 'B';
+        grade = 'A+';
       } else if (total >= 350) {
-        grade = 'C';
+        grade = 'A';
       } else {
-        grade = 'D';
+        grade = 'B+';
       }
   
       marks.total = total;
