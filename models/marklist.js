@@ -1,12 +1,8 @@
-import { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 //Write the schema
-const schema =new Schema({
-    id: {
-        type: String,
-        required: true,
-        unique: true,
-      },
+const Markschema =new Schema({
+
       student_name: {
         type: String,
         required: true,
@@ -41,17 +37,13 @@ const schema =new Schema({
       },
       total: {
         type: Number,
-        required: true,
       },
       grade: {
         type: String,
-        required: true,
       },
     
 })
 
 //Create the model
 
-const Marks=model("Marks",schema);
-
-export default Marks;
+export default mongoose.model('marklist',Markschema)

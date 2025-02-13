@@ -1,5 +1,5 @@
 import express from "express";
-import movieRoutes from"./routes/marklist.route.js"
+import marksRoutes from"./routes/marklist.route.js"
 import connectDB from "./lib/db.js";
 const app = express();
 const port = 4000;
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 //Crud Functionalities
-app.use('/movies',movieRoutes);
+app.use('/marks',marksRoutes);
 app.listen(port, () => {
   console.log(`The server is running at http://localhost:${port}`)
 })
