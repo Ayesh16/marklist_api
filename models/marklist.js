@@ -44,6 +44,7 @@ const Markschema =new Schema({
     
 })
 
+
 //Create the model
 
 export default mongoose.model('marklist',Markschema)
