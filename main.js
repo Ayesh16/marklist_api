@@ -12,6 +12,7 @@ const port = process.env.PORT || 4000; // Use PORT from .env or default to 4000
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Route handlers
 app.use("/api/auth", authRoutes);
 app.use("/marks", marksRoutes);
 
