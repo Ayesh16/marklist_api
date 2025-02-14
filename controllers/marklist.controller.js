@@ -13,7 +13,7 @@ export const MarksCreate = async (req, res) => {
     try {
       const marks = await marklist.create(req.body);
   
-      const total = marks.Java + marks.DS + marks.OS + marks.FDS + marks.Oops;
+      const total = marks.java + marks.ds + marks.os + marks.fds + marks.oops;
   
       let grade;
       if (total >= 450) {

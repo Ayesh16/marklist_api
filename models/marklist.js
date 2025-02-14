@@ -15,23 +15,23 @@ const Markschema =new Schema({
         type: String,
         required: true,
       },
-      Oops: {
+      oops: {
         type: Number,
         required: true,
       },
-      DS: {
+      ds: {
         type: Number,
         required: true,
       },
-      OS: {
+      os: {
         type: Number,
         required: true,
       },
-      Java: {
+      java: {
         type: Number,
         required: true,
       },
-      FDS: {
+      fds: {
         type: Number,
         required: true,
       },
