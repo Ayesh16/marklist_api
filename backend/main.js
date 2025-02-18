@@ -1,14 +1,20 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import marksRoutes from "./routes/marklist.route.js";
 import connectDB from "./lib/db.js";
 import authRoutes from "./routes/auth.route.js";
+
 
 dotenv.config(); // Load environment variables
 
 const app = express();
 const port = process.env.PORT || 4000; // Use PORT from .env or default to 4000
 
+app.use(cors({
+  origin: "http://localhost:5173",  // Allow requests from your frontend
+  credentials: true
+}));
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
