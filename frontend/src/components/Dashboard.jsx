@@ -46,6 +46,7 @@ const Dashboard = () => {
   };
   
   const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this mark?")) return;
     try {
       await deleteMark(id, token);
       alert('Marks deleted');
