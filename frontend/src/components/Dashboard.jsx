@@ -18,6 +18,10 @@ const Dashboard = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
+    if (!token) {
+      navigate('/login'); // Redirect if not logged in
+      return;
+    }
     const getMarks = async () => {
       const { data } = await fetchMarks(token);
       setMarks(data);
