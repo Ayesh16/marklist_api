@@ -34,8 +34,8 @@ export const createMark = async (data, token) => {
 export const updateMark = async (id, updatedMark, token) => {
     try {
       console.log("Updating with id:",id);
-      const response = await axios.put(
-        `http://localhost:4000/marks/${id}`, 
+      const response = await api.put(
+        `/marks/${id}`, 
         updatedMark, 
         { headers: { Authorization: `Bearer ${token}` } }
       );
