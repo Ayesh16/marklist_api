@@ -42,7 +42,7 @@ const Dashboard = () => {
           <h1 className="text-xl font-semibold">Mark Management System</h1>
         </header>
 
-        <main className="p-6 text-center md:text-left">
+        <main className="p-6 text-center md:text-left max-w-lg mx-auto flex-grow">
           <h2 className="text-2xl font-bold">Welcome to Dashboard</h2>
           <p className="mb-4">Logged in as: <strong>{role}</strong></p>
           
