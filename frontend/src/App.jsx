@@ -9,6 +9,7 @@ import Marks from './components/Marks';
 import About from './components/About';
 import MarksView from './components/MarksView';
 import Syllabus from './components/syllabus';
+import Timetable from './components/Timetable';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           <Route path="/marks" element={<Marks />} />    
           <Route path="/about" element={<About />} /> 
           <Route path="/marks-view" element={<MarksView />} /> 
-          <Route path="/syllabus" element={<Syllabus />} />                 
+          <Route path="/syllabus" element={<Syllabus />} />
+          <Route path="/timetable" element={<Timetable />} />                 
           
         </Routes>
       </div>

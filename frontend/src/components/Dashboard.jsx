@@ -23,6 +23,9 @@ const Dashboard = () => {
           <li className="mb-3 p-2 hover:bg-blue-700 rounded">
             <Link to="/syllabus">Syllabus</Link>
           </li>
+          <li className="mb-3 p-2 hover:bg-blue-700 rounded">
+            <Link to="/timetable">Timetable</Link>
+          </li>
 
           {role === "admin" ? (
             <li className="mb-3 p-2 hover:bg-blue-700 rounded">
