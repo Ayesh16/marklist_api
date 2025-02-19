@@ -47,13 +47,13 @@ const Dashboard = () => {
           <p className="mb-4">Logged in as: <strong>{role}</strong></p>
           
           {/* Responsive Image */}
-          <div className="flex justify-center md:justify-start">
-            <img 
-              src="/student.jpg" 
-              alt="student" 
-              className="mt-6 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full border shadow-lg"
-            />
-          </div>
+          <div className="flex justify-center">
+          <img
+            src="/student.jpg"
+            alt="Student Portal"
+            className="w-40  mt-15 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full border-4 border-purple-500 shadow-lg"
+          />
+        </div>
         </main>
       </div>
     </div>
