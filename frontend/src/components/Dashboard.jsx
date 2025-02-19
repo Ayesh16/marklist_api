@@ -35,12 +35,16 @@ const Dashboard = () => {
     try {
       await createMark(newMark, token);
       alert('Marks added successfully');
-      setNewMark({ student_name: '', roll_no: '', department: '', oops: 0, ds: 0, os: 0, java: 0, fds: 0 });
+      setNewMark({ student_name: '', roll_no: '', department: '', oops: '', ds: '', os: '', java: '', fds: '' });
+  
+      // Fetch marks again to update the state
+      const { data } = await fetchMarks(token);
+      setMarks(data);
     } catch (error) {
       alert('Error adding marks');
     }
   };
-
+  
   const handleDelete = async (id) => {
     try {
       await deleteMark(id, token);
