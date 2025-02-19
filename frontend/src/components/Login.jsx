@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../services/api';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../services/api";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -19,11 +19,13 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await loginUser(credentials);
-      localStorage.setItem('token', data.token);
-      alert('Login successful');
-      navigate('/dashboard');
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("role", data.role); // Store role in local storage
+      alert("Login successful");
+
+      navigate("/dashboard");
     } catch (error) {
-      alert('Invalid credentials');
+      alert("Invalid credentials");
     }
   };
 
@@ -47,7 +49,9 @@ const Login = () => {
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 rounded"
         />
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">Login</button>
+        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">
+          Login
+        </button>
       </form>
     </div>
   );
