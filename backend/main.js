@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 // CRUD Routes
-app.use("/marks", marksRoutes);
+
 
 // Start Server
 app.listen(port, () => {
