@@ -57,11 +57,30 @@ export const MarksUpdate = async (req, res) => {
             req.body,   
             { new: true }
         );
-        res.status(200).json(marks);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-};
+        const total = marks.java + marks.ds + marks.os + marks.fds + marks.oops;
+  
+        let grade;
+        if (total >= 450) {
+          grade = 'O';
+        } else if (total >= 400) {
+          grade = 'A+';
+        } else if (total >= 350) {
+          grade = 'A';
+        } else {
+          grade = 'B+';
+        }
+    
+        marks.total = total;
+        marks.grade = grade;
+        await marks.save();
+    
+        return res.status(201).json(marks);
+    
+      } catch (error) {
+      
+        return res.status(400).json({ message: 'Failed to create marks entry' });
+      }
+    };
 
 export const MarksDelete = async (req, res) => {
     const marksId = req.params.id;
