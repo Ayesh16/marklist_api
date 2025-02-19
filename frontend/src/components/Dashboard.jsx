@@ -52,16 +52,15 @@ const Dashboard = () => {
   };
 
   const handleUpdate = async (id) => {
-    console.log("Attempting to update marks for ID:", id);  // Debugging step
-  
+    console.log("Attempting to update marks for ID:", id);
+
     try {
       if (!id) {
         alert("Error: No ID provided for update");
         console.error("Update failed: ID is undefined or null");
         return;
       }
-  
-      // Gather the updated data
+
       const updatedMark = {
         student_name: editMark.student_name,
         roll_no: editMark.roll_no,
@@ -72,32 +71,40 @@ const Dashboard = () => {
         java: editMark.java,
         fds: editMark.fds,
       };
-  
+
       console.log("Updated Mark Data:", updatedMark);
-  
-      // Call the API to update the mark
+      console.log("Token:", token); // Log the token
+
       const response = await updateMark(id, updatedMark, token);
-  
-      // Check if the update was successful
+
       if (response && response.data) {
         alert("Marks updated successfully");
         console.log("Updated Response from API:", response.data);
-  
-        // Update the local state after successful API update
+
         setMarks((prevMarks) =>
           prevMarks.map((mark) =>
             mark._id === id ? { ...mark, ...updatedMark } : mark
           )
         );
-  
-        // Reset edit state
+
         setIsEditing(false);
         setEditMark(null);
       } else {
         alert("Failed to update marks: No response data");
       }
     } catch (error) {
-      alert("Error updating marks");
+      if (error.response) {
+        alert(`Update failed: ${error.response.status} - ${error.response.data.message || "Server error"}`);
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+        console.error("Response headers:", error.response.headers);
+      } else if (error.request) {
+        alert("Update failed: No response from server");
+        console.error("Request:", error.request);
+      } else {
+        alert("Update failed: " + error.message);
+        console.error("Error message:", error.message);
+      }
       console.log("Update error:", error);
     }
   };
