@@ -38,7 +38,7 @@ const Marks = () => {
       <h2 className="text-2xl font-bold mb-4 text-center">Marks Management</h2>
       
       <button
-        onClick={() => navigate("/add-marks")}
+        onClick={() => navigate("/dashboard/marks/add")}
         className="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md mb-4"
       >
         ➕ Add Marks
@@ -62,7 +62,7 @@ const Marks = () => {
                 <td className="border px-2 py-2">{mark.department}</td>
                 <td className="border px-2 py-2 flex gap-2 justify-center">
                   <button
-                    onClick={() => navigate(`/edit-marks/${mark._id}`)}
+                    onClick={() => navigate(`/dashboard/marks/edit/${mark._id}`)}
                     className="bg-yellow-500 text-white px-2 py-1 rounded-md hover:bg-yellow-600"
                   >
                     <FaEdit />

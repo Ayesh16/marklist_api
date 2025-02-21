@@ -23,18 +23,17 @@ function App() {
 
         {/* Dashboard Routes inside Layout */}
         <Route path="/dashboard" element={<Layout />}>
-          <Route index element={<Dashboard />} />  {/* Default dashboard route */}
+          <Route index element={<Dashboard />} /> {/* Default dashboard route */}
           <Route path="marks" element={<Marks />} />
           <Route path="marks-view" element={<MarksView />} />
           <Route path="about" element={<About />} />
           <Route path="syllabus" element={<Syllabus />} />
           <Route path="timetable" element={<Timetable />} />
-        </Route>
 
-        {/* Marks Management Routes */}
-        <Route path="/marks" element={<Marks />} />
-        <Route path="/add-marks" element={<AddMarks />} />
-        <Route path="/edit-marks/:id" element={<EditMarks />} />
+          {/* Marks Management Inside Dashboard */}
+          <Route path="marks/add" element={<AddMarks />} />
+          <Route path="marks/edit/:id" element={<EditMarks />} />
+        </Route>
       </Routes>
     </Router>
   );
