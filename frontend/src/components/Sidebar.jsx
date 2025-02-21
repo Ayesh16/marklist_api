@@ -3,7 +3,7 @@ import { FaBars, FaInfoCircle, FaCalendarAlt, FaBook, FaClipboardList } from "re
 
 const Sidebar = ({ isOpen, toggleSidebar, role }) => {
   return (
-    <aside className={`fixed top-0 left-0 h-full bg-white shadow-md transition-all duration-300 z-10
+    <aside className={`fixed top-0 left-0 h-full bg-gray-300 shadow-md transition-all duration-300 z-10
         ${isOpen ? "w-64" : "w-16"}`}>
       
       {/* Sidebar Toggle Button */}
@@ -16,7 +16,7 @@ const Sidebar = ({ isOpen, toggleSidebar, role }) => {
       <nav className="mt-4">
         <ul className="space-y-2">
           <li>
-            <Link to="/dashboard/about" className="flex items-center px-4 py-2 hover:bg-gray-200 cursor-pointer">
+            <Link to="/dashboard/about" className="flex items-center  px-4 py-2 hover:bg-gray-200 cursor-pointer">
               <FaInfoCircle className="text-xl" />
               {isOpen && <span className="ml-3">About</span>}
             </Link>
