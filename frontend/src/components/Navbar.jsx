@@ -1,34 +1,34 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { FaSignOutAlt } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ isOpen }) => {
   const navigate = useNavigate();
-  const token = localStorage.getItem('token');  // Check if the user is logged in
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Clear token
+    localStorage.removeItem("role");
+    localStorage.removeItem('token');
     alert('Logged out successfully!');
-    navigate('/login'); // Redirect to login page
+    navigate('/login');
   };
 
   return (
-    <nav className="bg-blue-500 p-4">
-      <div className="flex justify-between items-center">
-        <Link to="/" className="text-white text-xl font-bold">Marks System</Link>
-        <div>
-          {!token ? (
-            <>
-              <Link to="/login" className="text-white mr-4">Login</Link>
-              <Link to="/register" className="text-white">Register</Link>
-            </>
-          ) : (
-            <button onClick={handleLogout} className="text-white bg-red-500 px-4 py-2 rounded">Logout</button>
-          )}
-        </div>
-      </div>
+    <nav 
+  className={`fixed top-0 bg-white shadow-md p-4 flex justify-between items-center  z-50
+    transition-all duration-300 ${isOpen ? "left-64" : "left-16"} right-0`}
+>
+
+      {/* Logo */}
+      <Link to="/" className="text-xl font-bold flex items-center">Marks System</Link>
+
+      {/* Logout Button */}
+      <button onClick={handleLogout} className="flex items-center space-x-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+        <FaSignOutAlt className="mr-2" />
+        <span>Logout</span>
+      </button>
     </nav>
   );
 };
 
 export default Navbar;
+
 

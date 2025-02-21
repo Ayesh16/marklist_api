@@ -1,34 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Register from './components/Register';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import Navbar from './components/Navbar';
-import Marks from './components/Marks';
-import About from './components/About';
-import MarksView from './components/MarksView';
-import Syllabus from './components/syllabus';
-import Timetable from './components/Timetable';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import About from "./components/About";
+import Marks from "./components/Marks";
+import MarksView from "./components/MarksView";
+import Syllabus from "./components/Syllabus";
+import Timetable from "./components/Timetable";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <div className="container mx-auto p-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/marks" element={<Marks />} />    
-          <Route path="/about" element={<About />} /> 
-          <Route path="/marks-view" element={<MarksView />} /> 
-          <Route path="/syllabus" element={<Syllabus />} />
-          <Route path="/timetable" element={<Timetable />} />                 
-          
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* Layout with Sidebar + Navbar */}
+        <Route path="/dashboard" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="marks" element={<Marks />} />
+          <Route path="marks-view" element={<MarksView />} />
+          <Route path="about" element={<About />} />
+          <Route path="syllabus" element={<Syllabus />} />
+          <Route path="timetable" element={<Timetable />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }
