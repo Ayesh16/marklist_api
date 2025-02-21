@@ -8,7 +8,7 @@ const Navbar = ({ isOpen }) => {
     localStorage.removeItem("role");
     localStorage.removeItem('token');
     alert('Logged out successfully!');
-    navigate('/login');
+    navigate('/');
   };
 
   return (

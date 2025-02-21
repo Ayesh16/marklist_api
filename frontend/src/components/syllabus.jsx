@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Syllabus = () => {
   const navigate = useNavigate();
@@ -101,15 +100,7 @@ const Syllabus = () => {
           )}
         </div>
       ))}
-       <div className="p-4">
-                <button 
-                  onClick={() => navigate(-1)} 
-                  className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition"
-                >
-                  <FaArrowLeft />
-                  Back
-                </button>
-        </div>
+    
     </div>
   );
 };

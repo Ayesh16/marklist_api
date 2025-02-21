@@ -1,6 +1,5 @@
 import React from "react";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const timetableData = [
   {
@@ -96,15 +95,7 @@ const Timetable = () => {
           </tbody>
         </table>
       </div>
-        <div className="p-4">
-          <button 
-            onClick={() => navigate(-1)} 
-            className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition"
-          >
-            <FaArrowLeft />
-            Back
-          </button>
-        </div>
+       
     </div>
   );
 };

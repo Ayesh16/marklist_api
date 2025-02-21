@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
+
 
 const About = () => {
   const navigate = useNavigate();
@@ -21,16 +21,6 @@ const About = () => {
         <li><strong>Search & Sorting:</strong> Quickly find and organize student records.</li>
         <li><strong>User-Friendly Navigation:</strong> Intuitive sidebar and clean UI for easy use.</li>
       </ul>
-
-      <div className="mt-6">
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition"
-        >
-          <FaArrowLeft />
-          Back
-        </button>
-      </div>
     </div>
   );
 };

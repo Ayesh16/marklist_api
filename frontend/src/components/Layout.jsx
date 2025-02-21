@@ -20,7 +20,7 @@ const Layout = () => {
       <Navbar isOpen={isOpen} toggleSidebar={toggleSidebar} />
 
       {/* Main Page Content */}
-      <main className="mt-16 p-4 bg-gray-100 min-h-screen">
+      <main className="mt-16 p-6 bg-gray-100 min-h-[calc(100vh-64px)]">
         <Outlet />
       </main>
     </div>
