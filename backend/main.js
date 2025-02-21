@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.PORT || 4000; // Use PORT from .env or default to 4000
 
 app.use(cors({
-  origin: "http://localhost:5173",  // Allow requests from your frontend
+  origin: "http://localhost:5174",  // Allow requests from your frontend
   credentials: true
 }));
 // Middleware
