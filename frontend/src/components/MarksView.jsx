@@ -22,8 +22,8 @@ const MarksView = () => {
 
   return (
     <div className="p-6">
-    <h2 className="text-2xl font-bold mb-4">View Marks</h2>
-    <p className="mb-4">Users can only view marks.</p>
+    <h2 className="text-2xl font-bold mb-4">Student Marks</h2>
+    <p className="mb-4">Student's Marklists</p>
   
     {/* Responsive Table Wrapper */}
     <div className="overflow-x-auto">
