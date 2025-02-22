@@ -13,7 +13,7 @@ const Navbar = ({ isOpen }) => {
 
   return (
     <nav 
-  className={`fixed top-0 bg-gray-300 shadow-md p-4 flex justify-between items-center  z-50
+  className={`fixed top-0 bg--300 bg-gradient-to-l from-blue-500 to-blue-100 p-4 flex justify-between items-center  z-50
     transition-all duration-300 ${isOpen ? "left-64" : "left-16"} right-0`}
 >
 
