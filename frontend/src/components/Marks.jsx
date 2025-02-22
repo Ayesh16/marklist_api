@@ -51,7 +51,10 @@ const Marks = () => {
               <th className="border px-2 py-2">Name</th>
               <th className="border px-2 py-2">Roll No</th>
               <th className="border px-2 py-2">Dept</th>
+              <th className="border px-2 py-2">Total</th>
+              <th className="border px-2 py-2">Grade</th>
               <th className="border px-2 py-2">Actions</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -60,6 +63,8 @@ const Marks = () => {
                 <td className="border px-2 py-2">{mark.student_name}</td>
                 <td className="border px-2 py-2">{mark.roll_no}</td>
                 <td className="border px-2 py-2">{mark.department}</td>
+                <td className="border px-2 py-2">{mark.total}</td>
+                <td className="border px-2 py-2">{mark.grade}</td>
                 <td className="border px-2 py-2 flex gap-2 justify-center">
                   <button
                     onClick={() => navigate(`/dashboard/marks/edit/${mark._id}`)}
