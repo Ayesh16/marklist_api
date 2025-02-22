@@ -39,28 +39,136 @@ const EditMarks = () => {
     }
   };
 
-  if (!editMark) return <p>Loading...</p>;
+  if (!editMark) return <p className="text-center">Loading...</p>;
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4 text-center">Edit Marks</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {["student_name", "roll_no", "department", "oops", "ds", "os", "java", "fds"].map((field) => (
-          <input
-            key={field}
-            type={field === "student_name" || field === "roll_no" || field === "department" ? "text" : "number"}
-            name={field}
-            placeholder={field.replace("_", " ").toUpperCase()}
-            value={editMark[field]}
-            onChange={handleInputChange}
-            className="w-full p-2 border border-gray-300 rounded"
-            required
-          />
-        ))}
-        <button type="submit" className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
-          Update Marks
-        </button>
-      </form>
+    <div className="p-6 mx-auto bg-white rounded-lg">
+      <div className="p-6 bg-white rounded-lg">
+        <h2 className="text-2xl font-bold mb-6 text-center">Edit Marks</h2>
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Student Name */}
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 font-medium">Student Name</label>
+            <input
+              type="text"
+              name="student_name"
+              placeholder="Enter Student Name"
+              value={editMark.student_name}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          {/* Roll No */}
+          <div>
+            <label className="block text-gray-700 font-medium">Roll No</label>
+            <input
+              type="text"
+              name="roll_no"
+              placeholder="Enter Roll Number"
+              value={editMark.roll_no}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          {/* Department */}
+          <div>
+            <label className="block text-gray-700 font-medium">Department</label>
+            <input
+              type="text"
+              name="department"
+              placeholder="Enter Department"
+              value={editMark.department}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          {/* OOPS */}
+          <div>
+            <label className="block text-gray-700 font-medium">OOPS</label>
+            <input
+              type="number"
+              name="oops"
+              placeholder="Enter OOPS Marks"
+              value={editMark.oops}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          {/* Data Structures */}
+          <div>
+            <label className="block text-gray-700 font-medium">Data Structures (DS)</label>
+            <input
+              type="number"
+              name="ds"
+              placeholder="Enter DS Marks"
+              value={editMark.ds}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          {/* Operating Systems */}
+          <div>
+            <label className="block text-gray-700 font-medium">Operating Systems (OS)</label>
+            <input
+              type="number"
+              name="os"
+              placeholder="Enter OS Marks"
+              value={editMark.os}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          {/* Java */}
+          <div>
+            <label className="block text-gray-700 font-medium">Java</label>
+            <input
+              type="number"
+              name="java"
+              placeholder="Enter Java Marks"
+              value={editMark.java}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          {/* Fundamentals of Data Science */}
+          <div>
+            <label className="block text-gray-700 font-medium">Fundamentals of Data Science (FDS)</label>
+            <input
+              type="number"
+              name="fds"
+              placeholder="Enter FDS Marks"
+              value={editMark.fds}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          
+          {/* Buttons at the bottom */}
+          <div className="md:col-span-2 flex justify-between gap-4 mt-6">
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="w-1/2 bg-gray-500 text-white py-2 rounded hover:bg-gray-600"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="w-1/2 bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+            >
+              Update Marks
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
