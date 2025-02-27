@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import WelcomeCard  from  "../components/WelcomeCard";
+import Courses from "../components/Courses";
+import Notices from "../components/Notices";
+import CourseChart from "./CourseChart";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -16,13 +20,28 @@ const Dashboard = () => {
   }, [navigate]);
 
   return (
-    <div className="flex justify-center items-center h-full">
-      <div className="bg-white p-6 rounded-lg shadow-md text-center w-96">
-        <h2 className="text-2xl font-bold text-center">Dashboard</h2>
-        <p className="text-gray-500">Welcome to Student Portal</p>
-        <p className="mt-4 text-lg">Logged in as: <strong>{role}</strong></p>
+    <div className="min-h-screen p-6">
+
+    {/* Main Content */}
+    <main className="flex-1 p-6">
+      <WelcomeCard />
+
+      {/* Main Layout with Courses, Charts & Notices */}
+      <div className="flex flex-col lg:flex-row gap-6 mt-6">
+        {/* Left Section: Courses & CourseChart */}
+        <div className="flex flex-col gap-6 lg:w-3/4">
+          <Courses />
+          <CourseChart />
+        </div>
+
+        {/* Right Section: Notices */}
+        <div className="lg:w-1/4">
+          <Notices />
+        </div>
       </div>
-    </div>
+    </main>
+  </div>
+
   );
 };
 

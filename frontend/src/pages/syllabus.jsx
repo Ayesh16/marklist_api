@@ -76,13 +76,13 @@ const Syllabus = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-gray-100 shadow-lg rounded-lg mt-10">
+    <div className="max-w-3xl mx-auto p-6  shadow-lg rounded-lg mt-10 bg-purple-200">
       <h2 className="text-2xl font-bold text-center mb-5">Syllabus</h2>
 
       {syllabusData.map((subject, index) => (
         <div key={index} className="mb-3">
           <button
-            className="w-full text-left bg-blue-600 text-white p-3 rounded-lg flex justify-between items-center"
+            className="w-full text-left bg-purple-600 text-white p-3 rounded-lg flex justify-between items-center"
             onClick={() => toggleAccordion(index)}
           >
             <span className="font-semibold">{subject.subject}</span>
@@ -90,7 +90,7 @@ const Syllabus = () => {
           </button>
 
           {openIndex === index && (
-            <div className="bg-white p-4 border border-gray-300 rounded-lg mt-2">
+            <div className=" p-4 border border-gray-300 rounded-lg mt-2">
               <ul className="list-disc pl-5">
                 {subject.topics.map((topic, i) => (
                   <li key={i} className="py-1">{topic}</li>

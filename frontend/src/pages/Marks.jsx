@@ -34,7 +34,7 @@ const Marks = () => {
   };
 
   return (
-    <div className="p-6 bg-white shadow-lg rounded-lg">
+    <div className="p-6 bg-white shadow-lg rounded-lg w-full">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Marks Management</h2>
         <button
@@ -46,7 +46,7 @@ const Marks = () => {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-400">
+        <table className="w-full border-collapse ">
           <thead>
             <tr className="bg-gray-200 text-sm sm:text-base">
               <th className="border px-2 py-2">Name</th>

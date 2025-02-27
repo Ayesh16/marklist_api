@@ -1,26 +1,25 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
+import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
 
 const Layout = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const role = localStorage.getItem("role") || "user"; // Get role from localStorage
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  
   return (
-    <div className="flex">
+    <div className="flex h-screen overflow-hidden"> {/* Main wrapper should take full height */}
     {/* Sidebar */}
-    <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} role={role} />
-
+    <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} role={role}/>
+    
     {/* Main Content */}
-    <div className={`flex-1 transition-all duration-300 ${isOpen ? "ml-64" : "ml-16"}`}>
+    <div className="flex flex-col flex-1 min-h-screen bg-purple-100">
       {/* Navbar */}
-      <Navbar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-
-      {/* Main Page Content */}
-      <main className="mt-16 p-6 bg-gray-100 min-h-[calc(100vh-64px)]">
+      <Navbar toggleSidebar={toggleSidebar} />
+      
+      {/* Page Content */}
+      <main className="flex-1 p-6 overflow-auto">
         <Outlet />
       </main>
     </div>
