@@ -72,19 +72,25 @@ const EditMarks = () => {
               required
             />
           </div>
-          {/* Department */}
-          <div>
-            <label className="block text-gray-700 font-medium">Department</label>
-            <input
-              type="text"
-              name="department"
-              placeholder="Enter Department"
-              value={editMark.department}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
+          {/* Department Dropdown */}
+<div>
+  <label className="block text-gray-700 font-medium">Department</label>
+  <select
+    name="department"
+    value={editMark.department}
+    onChange={handleInputChange}
+    className="w-full p-2 border border-gray-300 rounded bg-white"
+    required
+  >
+    <option value="">Select Department</option>
+    <option value="CSE">Computer Science & Engineering (CSE)</option>
+    <option value="IT">Information Technology (IT)</option>
+    <option value="ECE">Electronics & Communication Engineering (ECE)</option>
+    <option value="MECH">Mechanical Engineering (MECH)</option>
+    <option value="CIVIL">Civil Engineering (CIVIL)</option>
+  </select>
+</div>
+
           {/* OOPS */}
           <div>
             <label className="block text-gray-700 font-medium">OOPS</label>
