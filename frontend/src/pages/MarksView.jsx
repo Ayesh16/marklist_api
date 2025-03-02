@@ -25,8 +25,8 @@ const MarksView = () => {
       <h2 className="text-lg md:text-2xl font-bold mb-2 md:mb-4">Student Marks</h2>
       <p className="text-sm md:text-base mb-4">Student's Marklists</p>
 
-      {/* Responsive Table Wrapper */}
-      <div className="max-w-full overflow-x-auto bg-white shadow-md rounded-lg">
+      {/* Table for larger screens */}
+      <div className="hidden sm:block max-w-full overflow-x-auto bg-white shadow-md rounded-lg">
         <table className="w-full border border-gray-300 text-xs md:text-sm">
           <thead>
             <tr className="bg-gray-200 text-gray-700 text-[10px] md:text-sm">
@@ -67,6 +67,31 @@ const MarksView = () => {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* Card layout for Mobile */}
+      <div className="block sm:hidden">
+        {marks.length > 0 ? (
+          marks.map((mark) => (
+            <div
+              key={mark._id}
+              className="border rounded-lg p-4 mb-4 shadow-md bg-white"
+            >
+              <p className="font-semibold text-lg">📌 {mark.student_name}</p>
+              <p className="text-sm">🎓 Roll No: <span className="font-semibold">{mark.roll_no}</span></p>
+              <p className="text-sm">🏛️ Dept: <span className="font-semibold">{mark.department}</span></p>
+              <p className="text-sm">🖥️ Oops: <span className="font-semibold">{mark.oops || "0"}</span></p>
+              <p className="text-sm">📊 DS: <span className="font-semibold">{mark.ds || "0"}</span></p>
+              <p className="text-sm">🖥️ OS: <span className="font-semibold">{mark.os || "0"}</span></p>
+              <p className="text-sm">☕ Java: <span className="font-semibold">{mark.java || "0"}</span></p>
+              <p className="text-sm">📘 FDS: <span className="font-semibold">{mark.fds || "0"}</span></p>
+              <p className="text-sm font-bold">Total: {mark.total || "0"}</p>
+              <p className="text-sm">📜 Grade: <span className="font-semibold">{mark.grade || "-"}</span></p>
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-sm p-4">No marks available.</p>
+        )}
       </div>
     </div>
   );
